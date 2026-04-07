@@ -88,6 +88,9 @@ footer span{color:var(--gold)}
 
 .reveal{opacity:0;transform:translateY(30px);transition:opacity 0.8s ease,transform 0.8s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
+.nav-anuncios{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;border:1px solid var(--gold-border);color:var(--gold);transition:background 0.2s,border-color 0.2s;text-decoration:none}
+.nav-anuncios:hover{background:var(--gold-pale);border-color:var(--gold)}
+.nav-anuncios svg{width:18px;height:18px}
 .hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;cursor:pointer;padding:8px;border:none;background:transparent;z-index:201}
 .hamburger span{display:block;width:24px;height:2px;background:var(--gold);border-radius:2px;transition:transform 0.3s,opacity 0.3s}
 .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
@@ -100,8 +103,15 @@ footer span{color:var(--gold)}
   nav .nav-links.open{display:flex}
   nav .nav-links a{padding:0.9rem 2.5rem;font-size:0.9rem;letter-spacing:0.1em;border-bottom:1px solid rgba(201,168,76,0.06)}
   .hamburger{display:flex}
-  .dept-grid{grid-template-columns:1fr}
-  .section{padding:3.5rem 1.5rem}
+  .dept-grid{grid-template-columns:repeat(2,1fr)}
+  .section{padding:3.5rem 1rem}
+  .dept-body{padding:1rem}
+  .dept-name{font-size:1.1rem}
+  .dept-desc{font-size:0.8rem;line-height:1.5}
+  .dept-img{aspect-ratio:1/1}
+  .dept-img img.img-logo{width:60%;height:auto}
+  .dept-img img.img-logo-lg{width:80%;height:auto}
+  .dept-detail{font-size:0.72rem}
 }
 </style>
 </head>
@@ -111,6 +121,11 @@ footer span{color:var(--gold)}
 
 <nav>
   <div class="nav-logo"><img src="imagenes/logo_gilgal.png" style="height:36px;width:auto;object-fit:contain" alt="Iglesia Gilgal"></div>
+  <a href="anuncios.html" class="nav-anuncios" title="Anuncios">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/>
+  </svg>
+</a>
   <button class="hamburger" id="hamburger" onclick="toggleMenu()">
   <span></span><span></span><span></span>
 </button>
