@@ -117,6 +117,23 @@ footer span{color:var(--gold)}
 .nav-anuncios{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;border:1px solid var(--gold-border);color:var(--gold);transition:background 0.2s,border-color 0.2s;text-decoration:none}
 .nav-anuncios:hover{background:var(--gold-pale);border-color:var(--gold)}
 .nav-anuncios svg{width:18px;height:18px}
+.whatsapp-btn{
+  position:fixed;bottom:2rem;right:1.5rem;
+  z-index:300;
+  width:56px;height:56px;border-radius:50%;
+  background:#25D366;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(37,211,102,0.4);
+  text-decoration:none;
+  transition:transform 0.2s,box-shadow 0.2s;
+  animation:waPulse 2.5s ease infinite;
+}
+.whatsapp-btn:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,0.6)}
+.whatsapp-btn svg{width:30px;height:30px}
+@keyframes waPulse{
+  0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.4)}
+  50%{box-shadow:0 4px 32px rgba(37,211,102,0.7)}
+}
 .hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;cursor:pointer;padding:8px;border:none;background:transparent;z-index:201}
 .hamburger span{display:block;width:24px;height:2px;background:var(--gold);border-radius:2px;transition:transform 0.3s,opacity 0.3s}
 .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
@@ -140,6 +157,10 @@ footer span{color:var(--gold)}
   .schedule-wrap{padding:2.5rem 1.5rem;border-radius:18px}
   .cta-band{padding:3.5rem 1.5rem}
   .section{padding:4rem 1.5rem}
+  .red-card{padding:1.2rem 1rem}
+  .red-icon{width:44px;height:44px}
+  .red-name{font-size:0.85rem}
+  .red-handle{font-size:0.75rem}
 }
 </style>
 </head>
@@ -217,7 +238,7 @@ footer span{color:var(--gold)}
         <p class="scard-time">20:00 – 21:00 hrs</p>
         <a href="https://www.facebook.com/share/1BbQ4PEyL9/?mibextid=wwXIfr" target="_blank" class="zoom-btn">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
-        Unirse a Facebook
+        Unirse a Face
         </a>
       </div>
       <div class="scard">
@@ -333,7 +354,7 @@ footer span{color:var(--gold)}
   <p class="eyebrow">Síguenos</p>
   <div class="divider"></div>
   <h2 class="section-title">Redes sociales</h2>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;margin-top:2rem">
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.8rem;margin-top:2rem">
 
     <a href="https://instagram.com/iep_gilgal" target="_blank" class="red-card">
       <div class="red-icon" style="background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045)">
@@ -368,6 +389,12 @@ footer span{color:var(--gold)}
     </div>
 </div>
 
+<a href="https://wa.me/525548489498?text=Hola%2C%20me%20gustar%C3%ADa%20saber%20m%C3%A1s%20sobre%20Iglesia%20Gilgal" target="_blank" class="whatsapp-btn" title="Escríbenos por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.532 5.862L.057 23.428a.5.5 0 00.609.61l5.737-1.505A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.875 9.875 0 01-5.031-1.371l-.36-.214-3.733.979.997-3.648-.235-.374A9.847 9.847 0 012.118 12C2.118 6.533 6.533 2.118 12 2.118c5.468 0 9.882 4.415 9.882 9.882 0 5.468-4.414 9.882-9.882 9.882z"/>
+  </svg>
+</a>
 <footer>
   <p>© 2025 <span>Iglesia Gilgal</span> — Todos los derechos reservados</p>
 </footer>
