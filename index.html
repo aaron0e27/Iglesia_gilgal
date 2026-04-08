@@ -41,7 +41,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .hero-scroll span{font-size:0.66rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-dim)}
 .scroll-line{width:1px;height:44px;background:linear-gradient(to bottom,var(--gold),transparent);animation:pulse 2s ease infinite}
 .gold-line{width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0.3}
-.section{padding:6rem 2rem;max-width:1100px;margin:0 auto}
+.section{padding:3rem 2rem;max-width:1100px;margin:0 auto}
 .eyebrow{font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.8rem}
 .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:700;line-height:1.15;color:var(--text);margin-bottom:1.2rem}
 .divider{width:48px;height:2px;background:linear-gradient(90deg,var(--gold),transparent);margin:0 0 1.5rem;border-radius:2px}
@@ -62,7 +62,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .scard-day{font-size:0.68rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem}
 .scard-name{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;color:var(--text);margin-bottom:0.3rem}
 .scard-time{font-size:0.88rem;color:var(--text-muted)}
-.scard-lugar{display:flex;align-items:center;gap:5px;margin-top:0.8rem;font-size:0.75rem;color:var(--text-dim);font-weight:400}
+.scard-lugar{
+  display:inline-flex;align-items:center;gap:6px;
+  margin-top:0.9rem;padding:6px 14px;
+  border-radius:50px;
+  background:rgba(201,168,76,0.08);
+  border:1px solid rgba(201,168,76,0.25);
+  font-size:0.75rem;color:var(--gold);font-weight:500;
+}
+.scard-lugar svg{width:13px;height:13px;flex-shrink:0;color:var(--gold)}
 .zoom-btn{display:inline-flex;align-items:center;gap:6px;margin-top:1rem;padding:7px 16px;border-radius:50px;background:rgba(35,107,255,0.12);border:1px solid rgba(35,107,255,0.3);color:#6b9fff;font-size:0.75rem;font-weight:600;letter-spacing:0.06em;text-decoration:none;text-transform:uppercase;transition:background 0.2s,border-color 0.2s}
 .zoom-btn:hover{background:rgba(35,107,255,0.22);border-color:rgba(35,107,255,0.5)}
 .loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;margin-top:3rem}
@@ -143,12 +151,6 @@ footer span{color:var(--gold)}
 @keyframes pulse{0%,100%{opacity:0.3}50%{opacity:1}}
 @media(max-width:720px){
   .welcome-grid,.loc-grid{grid-template-columns:1fr}
-  .schedule-grid{grid-template-columns:repeat(2,1fr)}
-  .scard{padding:1rem 1rem 1.2rem}
-  .scard-name{font-size:1rem}
-  .scard-time{font-size:0.8rem}
-  .scard-lugar{font-size:0.7rem}
-  .zoom-btn{font-size:0.68rem;padding:6px 12px}
   .welcome-img{aspect-ratio:16/9}
   nav .nav-links{display:none;flex-direction:column;position:fixed;top:64px;left:0;right:0;background:rgba(3,3,3,0.98);border-bottom:1px solid var(--gold-border);padding:1rem 0 1.5rem;gap:0;z-index:199}
   nav .nav-links.open{display:flex}
@@ -219,14 +221,13 @@ footer span{color:var(--gold)}
       <h3 class="section-title" style="font-size:1.9rem">Fe, esperanza<br>y comunidad</h3>
       <p>Somos una comunidad cristiana comprometida con vivir y compartir el amor de Dios. En Iglesia Gilgal encontrarás un lugar cálido y acogedor donde crecer en fe junto a otros.</p>
       <p>Cada semana nos reunimos para adorar, aprender de la Palabra y apoyarnos mutuamente en el camino de la fe.</p>
-      <p class="hint-edit">PROYECTO PRO ESTACIONAMIENTO. Con tu ayuda la construccion del estacionamiento será posible.</p>
     </div>
   </div>
 </div>
 
 <div class="gold-line"></div>
 
-<div style="padding:6rem 2rem;max-width:1100px;margin:0 auto" id="horarios">
+<div style="padding:3rem 2rem;max-width:1100px;margin:0 auto" id="horarios"></div>
   <div class="schedule-wrap reveal">
     <p class="eyebrow">Reuniones semanales</p>
     <div class="divider"></div>
@@ -238,7 +239,7 @@ footer span{color:var(--gold)}
         <p class="scard-time">20:00 – 21:00 hrs</p>
         <a href="https://www.facebook.com/share/1BbQ4PEyL9/?mibextid=wwXIfr" target="_blank" class="zoom-btn">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
-        Unirse a Face
+        Unirse a Facebook Live
         </a>
       </div>
       <div class="scard">
@@ -270,7 +271,7 @@ footer span{color:var(--gold)}
       </div>
       <div class="scard">
         <p class="scard-day">Viernes</p>
-        <p class="scard-name">Oración</p>
+        <p class="scard-name">Oración CNXN Zoom</p>
         <p class="scard-time">21:00 – 22:15 hrs</p>
         <a href="https://us06web.zoom.us/j/85290092846?pwd=L1QzUehG9Eb9f5lowYRANJ6a3ebWQu.1" target="_blank" class="zoom-btn">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
