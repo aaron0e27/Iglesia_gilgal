@@ -512,9 +512,16 @@ footer span{color:var(--gold)}
 
 <script>
 window.addEventListener('load',()=>{
-  setTimeout(()=>{
+  const yaVisto = sessionStorage.getItem('splashVisto');
+  if(yaVisto){
     document.getElementById('splash').classList.add('hide');
-  }, 2500);
+    document.getElementById('splash').style.transition='none';
+  } else {
+    sessionStorage.setItem('splashVisto','1');
+    setTimeout(()=>{
+      document.getElementById('splash').classList.add('hide');
+    }, 2500);
+  }
 });
 const canvas = document.getElementById('rays');
 const ctx = canvas.getContext('2d');
@@ -602,4 +609,3 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 </script>
 </body>
 </html>
-
