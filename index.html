@@ -73,6 +73,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .scard-lugar svg{width:13px;height:13px;flex-shrink:0;color:var(--gold)}
 .zoom-btn{display:inline-flex;align-items:center;gap:6px;margin-top:1rem;padding:7px 16px;border-radius:50px;background:rgba(35,107,255,0.12);border:1px solid rgba(35,107,255,0.3);color:#6b9fff;font-size:0.75rem;font-weight:600;letter-spacing:0.06em;text-decoration:none;text-transform:uppercase;transition:background 0.2s,border-color 0.2s}
 .zoom-btn:hover{background:rgba(35,107,255,0.22);border-color:rgba(35,107,255,0.5)}
+.badge-live{display:inline-flex;align-items:center;gap:5px;margin-left:0.5rem;padding:2px 8px;border-radius:50px;font-size:0.62rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;background:rgba(255,60,60,0.15);border:1px solid rgba(255,60,60,0.4);color:#ff6060;vertical-align:middle}
+.badge-live::before{content:'';width:6px;height:6px;border-radius:50%;background:#ff4444;animation:livePulse 1.2s ease infinite;flex-shrink:0;display:inline-block}
+@keyframes livePulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(0.7)}}
 .loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;margin-top:3rem}
 .info-list{list-style:none;display:flex;flex-direction:column;gap:1rem}
 .info-item{display:flex;gap:1rem;align-items:flex-start;padding:1.2rem 1.4rem;background:var(--surface);border:1px solid var(--gold-border);border-radius:var(--radius);transition:border-color 0.2s}
@@ -88,7 +91,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .cta-wrap{padding:0 2rem 6rem;max-width:1100px;margin:0 auto}
 .cta-band{background:linear-gradient(135deg,#1a1408 0%,#0d0d0d 50%,#1a1200 100%);border:1px solid var(--gold-border);border-radius:28px;text-align:center;padding:5rem 2rem;position:relative;overflow:hidden}
 .cta-band::before{content:'';position:absolute;top:-60%;left:50%;transform:translateX(-50%);width:400px;height:400px;border-radius:50%;background:radial-gradient(ellipse,rgba(201,168,76,0.12) 0%,transparent 70%)}
-.cta-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3rem);font-weight:700;color:var(--text);margin-bottom:0.8rem;position:relative}
+.cta-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3rem);font-weight:7００;color:var(--text);margin-bottom:０.8rem;position:relative}
 .cta-text{font-size:1rem;color:var(--text-muted);margin-bottom:2.5rem;position:relative;font-weight:300}
 .cta-btn{display:inline-block;background:linear-gradient(135deg,var(--gold-light),var(--gold));color:var(--black);font-size:0.8rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;padding:1rem 2.8rem;border-radius:50px;position:relative;transition:transform 0.15s,box-shadow 0.15s;box-shadow:0 0 30px rgba(201,168,76,0.25)}
 .cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 40px rgba(201,168,76,0.4)}
@@ -301,16 +304,16 @@ footer span{color:var(--gold)}
     <div class="divider"></div>
     <h2 class="section-title">Nuestros horarios</h2>
     <div class="schedule-grid">
-      <div class="scard">
+      <div class="scard" id="scard-lunes">
         <p class="scard-day">Lunes</p>
         <p class="scard-name">Radio Cristiano Facebook LIVE</p>
         <p class="scard-time">20:00 – 21:00 hrs</p>
-        <a href="https://www.facebook.com/share/1BbQ4PEyL9/?mibextid=wwXIfr" target="_blank" class="zoom-btn">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
-        Unirse a Facebook Live
-        </a>
+        <a href="https://www.facebook.com/share/19FwoFTFo9/?mibextid=wwXIfr" target="_blank" class="zoom-btn" style="margin-top:0.6rem;background:rgba(255,60,60,0.12);border-color:rgba(255,60,60,0.3);color:#ff8080">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>
+        Ver en vivo
+</a>
       </div>
-      <div class="scard">
+      <div class="scard" id="scard-martes">
         <p class="scard-day">Martes</p>
         <p class="scard-name">Jovenes CNXN Zoom</p>
         <p class="scard-time">21:30 – 22:30 hrs</p>
@@ -319,7 +322,7 @@ footer span{color:var(--gold)}
         Unirse a Zoom
       </a>
       </div>
-      <div class="scard">
+      <div class="scard" id="scard-miercoles">
         <p class="scard-day">Miércoles</p>
         <p class="scard-name">Varones CNXN Zoom</p>
         <p class="scard-time">21:30 – 22:30 hrs</p>
@@ -328,7 +331,7 @@ footer span{color:var(--gold)}
          Unirse a Zoom
   </a>
       </div>
-      <div class="scard">
+      <div class="scard" id="scard-jueves">
         <p class="scard-day">Jueves</p>
         <p class="scard-name">Culto General</p>
         <p class="scard-time">19:30 – 20:40 hrs</p>
@@ -337,7 +340,7 @@ footer span{color:var(--gold)}
         Presencial — Zacualpan 30, Valle Gómez
   </p>
       </div>
-      <div class="scard">
+      <div class="scard" id="scard-viernes">
         <p class="scard-day">Viernes</p>
         <p class="scard-name">Oración CNXN Zoom</p>
         <p class="scard-time">21:00 – 22:15 hrs</p>
@@ -346,7 +349,7 @@ footer span{color:var(--gold)}
         Unirse a Zoom
   </a>
       </div>
-      <div class="scard">
+      <div class="scard" id="scard-domingo">
         <p class="scard-day">Domingo</p>
         <p class="scard-name">Servicio Dominical</p>
         <p class="scard-time">10:30 – 14:30 hrs</p>
@@ -354,6 +357,10 @@ footer span{color:var(--gold)}
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;flex-shrink:0"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
         Presencial — Valenciana 27, Valle Gómez
   </p>
+<a href="https://www.facebook.com/share/1BRT1C68DH/?mibextid=wwXIfr" target="_blank" class="zoom-btn" style="margin-top:0.6rem;background:rgba(255,60,60,0.12);border-color:rgba(255,60,60,0.3);color:#ff8080">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>
+  Ver en vivo
+</a>
       </div>
     </div>
   </div>
@@ -598,6 +605,36 @@ btnTop.addEventListener('click',e=>{
   e.preventDefault();
   window.scrollTo({top:0,behavior:'smooth'});
 });
+(function(){
+  const horarios=[
+    {dia:1,inicio:'20:00',fin:'21:00',id:'scard-lunes'},
+    {dia:2,inicio:'21:30',fin:'22:30',id:'scard-martes'},
+    {dia:3,inicio:'21:30',fin:'22:30',id:'scard-miercoles'},
+    {dia:4,inicio:'19:30',fin:'20:40',id:'scard-jueves'},
+    {dia:5,inicio:'21:00',fin:'22:15',id:'scard-viernes'},
+    {dia:0,inicio:'10:30',fin:'14:30',id:'scard-domingo'},
+  ];
+  function toMin(h){const[hh,mm]=h.split(':').map(Number);return hh*60+mm}
+  function check(){
+    const now=new Date(),dia=now.getDay(),min=now.getHours()*60+now.getMinutes();
+    document.querySelectorAll('.badge-live').forEach(b=>b.remove());
+    horarios.forEach(h=>{
+      if(h.dia===dia&&min>=toMin(h.inicio)&&min<=toMin(h.fin)){
+        const card=document.getElementById(h.id);
+        if(card){
+          const name=card.querySelector('.scard-name');
+          if(name&&!name.querySelector('.badge-live')){
+            const badge=document.createElement('span');
+            badge.className='badge-live';
+            badge.textContent='En curso';
+            name.appendChild(badge);
+          }
+        }
+      }
+    });
+  }
+  check();setInterval(check,60000);
+})();
 function toggleRed(header){
   const grupo=header.parentElement;
   grupo.classList.toggle('open');
