@@ -3,6 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Historia de Iglesia Gilgal desde 1946 — Más de 80 años de fe, restauración y comunidad cristiana en Ciudad de México.">
+<meta name="keywords" content="historia iglesia cristiana México, IEP Gilgal historia, iglesia 1946 CDMX, iglesia evangélica antigua Ciudad de México">
+<meta property="og:title" content="Historia — Iglesia Gilgal">
+<meta property="og:url" content="https://iepiglesiagilgal.com/historia.html">
+<meta name="robots" content="index, follow">
 <title>Historia — Iglesia Gilgal</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -27,6 +32,32 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .nav-anuncios{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;border:1px solid var(--gold-border);color:var(--gold);transition:background 0.2s,border-color 0.2s;text-decoration:none}
 .nav-anuncios:hover{background:var(--gold-pale);border-color:var(--gold)}
 .nav-anuncios svg{width:18px;height:18px}
+.nav-panel-btn{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;border:1px solid var(--gold-border);color:var(--gold);background:transparent;cursor:pointer;transition:background 0.2s,border-color 0.2s;flex-shrink:0}
+.nav-panel-btn:hover,.nav-panel-btn.active{background:var(--gold-pale);border-color:var(--gold)}
+.nav-panel-btn svg{width:18px;height:18px}
+.nav-panel-overlay{position:fixed;inset:0;z-index:190;background:rgba(0,0,0,0.5);opacity:0;visibility:hidden;transition:opacity 0.3s,visibility 0.3s}
+.nav-panel-overlay.open{opacity:1;visibility:visible}
+.nav-panel{position:fixed;top:64px;right:1.5rem;z-index:195;width:min(420px,calc(100vw - 2rem));background:var(--surface);border:1px solid var(--gold-border);border-radius:20px;box-shadow:0 8px 40px rgba(0,0,0,0.6);transform:translateY(-10px);opacity:0;visibility:hidden;transition:transform 0.3s ease,opacity 0.3s ease,visibility 0.3s;overflow:hidden}
+.nav-panel.open{transform:translateY(0);opacity:1;visibility:visible}
+.panel-header{display:flex;align-items:center;justify-content:space-between;padding:1.2rem 1.5rem;border-bottom:1px solid var(--gold-border)}
+.panel-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:var(--text)}
+.panel-close{background:none;border:none;color:var(--text-dim);cursor:pointer;font-size:1.4rem;line-height:1;padding:0;transition:color 0.2s}
+.panel-close:hover{color:var(--gold)}
+.panel-body{padding:1.5rem;max-height:70vh;overflow-y:auto}
+.donate-highlight{background:linear-gradient(135deg,rgba(201,168,76,0.1),rgba(201,168,76,0.04));border:1px solid rgba(201,168,76,0.3);border-radius:14px;padding:1.2rem 1.4rem;margin-bottom:1rem}
+.donate-label{font-size:0.68rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:0.4rem}
+.donate-value{font-size:1rem;font-weight:600;color:var(--text);letter-spacing:0.04em;word-break:break-word}
+.donate-verse{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:var(--gold);text-align:center;padding:0.8rem 1rem;border-top:1px solid var(--gold-border);border-bottom:1px solid var(--gold-border);margin:0.8rem 0}
+.donate-copy{display:inline-flex;align-items:center;gap:5px;margin-top:0.6rem;padding:5px 12px;border-radius:50px;background:rgba(201,168,76,0.1);color:var(--gold);font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:background 0.2s;border:none}
+.donate-copy:hover{background:rgba(201,168,76,0.2)}
+.donate-copy svg{width:12px;height:12px}
+.donate-note{font-size:0.82rem;color:var(--text-muted);line-height:1.6;font-weight:300}
+.panel-footer{padding:0.7rem 1.5rem;border-top:1px solid var(--gold-border);text-align:center}
+.panel-footer a{font-size:0.78rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);text-decoration:none}
+.btn-top{position:fixed;bottom:2rem;left:1.5rem;z-index:300;width:42px;height:42px;border-radius:50%;background:rgba(201,168,76,0.12);border:1px solid var(--gold-border);display:flex;align-items:center;justify-content:center;cursor:pointer;text-decoration:none;opacity:0;visibility:hidden;transition:opacity 0.3s,visibility 0.3s,background 0.2s}
+.btn-top.visible{opacity:1;visibility:visible}
+.btn-top:hover{background:rgba(201,168,76,0.25);border-color:var(--gold)}
+.btn-top svg{width:16px;height:16px;color:var(--gold)}
 .hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;cursor:pointer;padding:8px;border:none;background:transparent;z-index:201}
 .hamburger span{display:block;width:24px;height:2px;background:var(--gold);border-radius:2px;transition:transform 0.3s,opacity 0.3s}
 .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
@@ -151,15 +182,18 @@ footer span{color:var(--gold)}
 <canvas id="particles-bg" style="position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none"></canvas>
 
 <nav>
-  <div class="nav-logo"><img src="imagenes/logo_gilgal.png" alt="Iglesia Gilgal"></div>
-  <a href="anuncios.html" class="nav-anuncios" title="Anuncios">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/>
-  </svg>
-</a>
-  <button class="hamburger" id="hamburger" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
-  </button>
+  <div class="nav-logo"><img src="imagenes/logo_gilgal.png" style="height:36px;width:auto;object-fit:contain" alt="Iglesia Gilgal"></div>
+  <div style="display:flex;align-items:center;gap:0.6rem">
+    <a href="anuncios.html" class="nav-panel-btn" title="Anuncios">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+    </a>
+    <button class="nav-panel-btn" id="btnDonate" onclick="togglePanel()" title="Donaciones">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+    </button>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
   <ul class="nav-links">
     <li><a href="index.html">Inicio</a></li>
     <li><a href="index.html#horarios">Horarios</a></li>
@@ -170,6 +204,38 @@ footer span{color:var(--gold)}
     <li><a href="historia.html" class="active">Historia</a></li>
   </ul>
 </nav>
+
+<a href="#" class="btn-top" id="btnTop">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</a>
+<div class="nav-panel-overlay" id="panelOverlay" onclick="cerrarPaneles()"></div>
+<div class="nav-panel" id="panelDonate">
+  <div class="panel-header">
+    <span class="panel-title" style="display:flex;align-items:center;gap:0.6rem">
+      <span style="display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--gold-light),var(--gold))">
+        <svg viewBox="0 0 24 24" fill="white" width="14" height="14"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+      </span>
+      Donaciones
+    </span>
+    <button class="panel-close" onclick="cerrarPaneles()">×</button>
+  </div>
+  <div class="panel-body">
+    <p class="donate-note" style="margin-bottom:1rem">Tu aportación ayuda a sostener los ministerios, mantenimiento del templo y actividades de la iglesia. ¡Gracias por tu generosidad!</p>
+    <div class="donate-highlight"><p class="donate-label">Banco</p><p class="donate-value">BBVA</p></div>
+    <div class="donate-highlight"><p class="donate-label">Titular de la cuenta</p><p class="donate-value">Iglesia Evangélica Pentecostés Gilgal A.R</p></div>
+    <div class="donate-highlight">
+      <p class="donate-label">CLABE Interbancaria</p>
+      <p class="donate-value" id="clabeNum">072180002325021490</p>
+      <button class="donate-copy" onclick="copiarClabe()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+        Copiar CLABE
+      </button>
+    </div>
+    <div class="donate-highlight"><p class="donate-label">Número de cuenta</p><p class="donate-value">0232502149</p></div>
+    <p class="donate-verse">"Dios ama al dador alegre" — 2 Cor 9:7</p>
+  </div>
+  <div class="panel-footer"><a href="index.html#ubicacion">¿Prefieres dar en persona? Ver ubicación →</a></div>
+</div>
 
 <div class="hero">
   <canvas id="rays"></canvas>
@@ -328,6 +394,32 @@ function drawRays(){
   requestAnimationFrame(drawRays);
 }
 requestAnimationFrame(drawRays);
+const btnTop=document.getElementById('btnTop');
+window.addEventListener('scroll',()=>{btnTop.classList.toggle('visible',window.scrollY>400)});
+btnTop.addEventListener('click',e=>{e.preventDefault();window.scrollTo({top:0,behavior:'smooth'})});
+function togglePanel(){
+  const panel=document.getElementById('panelDonate');
+  const btn=document.getElementById('btnDonate');
+  const overlay=document.getElementById('panelOverlay');
+  if(panel.classList.contains('open')){cerrarPaneles();}
+  else{panel.classList.add('open');btn.classList.add('active');overlay.classList.add('open');}
+}
+function cerrarPaneles(){
+  document.getElementById('panelDonate').classList.remove('open');
+  document.getElementById('panelOverlay').classList.remove('open');
+  document.getElementById('btnDonate').classList.remove('active');
+}
+function copiarClabe(){
+  const clabe=document.getElementById('clabeNum').textContent.trim();
+  navigator.clipboard.writeText(clabe).then(()=>{
+    const btn=document.querySelector('.donate-copy');
+    const orig=btn.innerHTML;
+    btn.textContent='✓ Copiado';
+    btn.style.background='rgba(100,200,100,0.2)';
+    setTimeout(()=>{btn.innerHTML=orig;btn.style.background='';},2000);
+  });
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')cerrarPaneles()});
 function toggleMenu(){
   const menu=document.querySelector('.nav-links');
   const btn=document.getElementById('hamburger');
